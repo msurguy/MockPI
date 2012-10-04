@@ -133,7 +133,10 @@
 						<ul
 							class="nav"
 						>
-							<li>
+							<li
+								class="divider-vertical"
+							></li>
+							<li<?php if (URI::segment(1, 'ROOT') === 'ROOT') print ' class="active"'; ?>>
 								<a
 									href="<?php print URL::$base ?>/"
 								>
@@ -143,37 +146,33 @@
 									<strong>Home</strong>
 								</a>
 							</li>
+							<li
+								class="divider-vertical"
+							></li>
 							<?php if (Auth::check()): ?>
-							<li>
+							<li<?php if (URI::segment(1) === 'projects') print ' class="active"'; ?>>
 								<a
-									href="<?php print URL::$base; ?>/dashboard"
+									href="<?php print URL::$base; ?>/projects"
 								>
 									<i
-										class="icon-dashboard icon-large"
+										class="icon-folder-open icon-large"
 									></i>
-									<strong>Dashboard</strong>
+									<strong>Projects</strong>
 								</a>
 							</li>
+							<li
+								class="divider-vertical"
+							></li>
 							<?php endif; ?>
 						</ul>
 						<?php if (Auth::check()): ?>
 						<ul
 							class="nav pull-right"
 						>
-							<li>
-								<a
-									href="#"
-								>
-									<i
-										class="icon-large icon-user"
-									></i>
-									<strong><?php print Auth::user()->username ?></strong>
-								</a>
-							</li>
 							<li
 								class="divider-vertical"
 							></li>
-							<li>
+							<li<?php if (URI::segment(1) === 'settings') print ' class="active"'; ?>>
 								<a
 									href="<?php print URL::$base; ?>/settings"
 								>
@@ -184,7 +183,7 @@
 								</a>
 							</li>
 							<li
-								class="divider"
+								class="divider-vertical"
 							></li>
 							<li>
 								<a
@@ -196,12 +195,15 @@
 									<strong>Logout</strong>
 								</a>
 							</li>
+							<li
+								class="divider-vertical"
+							></li>
 						</ul>
 						<?php else: ?>
 						<ul
 							class="nav pull-right"
 						>
-							<li>
+							<li<?php if (URI::segment(1) === 'login') print ' class="active"'; ?>>
 								<a
 									href="<?php print URL::$base; ?>/login"
 								>
@@ -211,7 +213,7 @@
 									<strong>Login</strong>
 								</a>
 							</li>
-							<li>
+							<li<?php if (URI::segment(1) === 'register') print ' class="active"'; ?>>
 								<a
 									href="<?php print URL::$base; ?>/register"
 								>
@@ -230,6 +232,33 @@
 		<div
 			class="container-fluid"
 		>
+			<?php if (Auth::check()): ?>
+			<div
+				class="row-fluid"
+			>
+				<div
+					class="span3"
+				>
+					&nbsp;
+				</div>
+				<div
+					class="span6"
+				>
+					<p>
+						<i
+							class="icon-large icon-user"
+						></i>
+						Current user:
+						<strong><?php print Auth::user()->username ?></strong>
+					</p>
+				</div>
+				<div
+					class="span3"
+				>
+					&nbsp;
+				</div>
+			</div>
+			<?php endif; ?>
 			<div
 				class="row-fluid"
 			>
@@ -261,15 +290,51 @@
 			</div>
 			<?php print Section::yield('content'); ?>
 		</div>
+		<hr>
+		<div
+			class="container-fluid"
+		>
+			<div
+				class="row-fluid"
+			>
+				<div
+					class="span3"
+				>
+					&nbsp;
+				</div>
+				<div
+					class="span6"
+				>
+					<p>
+						Made with love by Jonathan Barronville
+						<strong>
+							(<a href="https://twitter.com/jonathanmarvens">@jonathanmarvens</a>)
+						</strong>
+						using
+						<strong>Twitter Boostrap</strong>,
+						<strong>Google Webfonts</strong>,
+						<strong>Font Awesome</strong>,
+						and a couple more awesome tools.
+					</p>
+					<p>
+						Powered by
+						<strong>PHP</strong>
+						using
+						<strong>Laravel</strong>.
+					</p>
+				</div>
+				<div
+					class="span3"
+				>
+					&nbsp;
+				</div>
+			</div>
+		</div>
 		<script
 			src="//code.jquery.com/jquery-latest.js"
 		></script>
 		<script>
-		window.jQuery || document.write(
-			'<script' +
-				'src="<?php print URL::$base; ?>/static/resources/jquery.js"' +
-			'><\/script>'
-		);
+		window.jQuery || document.write('<script src="<?php print URL::$base; ?>/static/resources/jquery.js"><\/script>');
 		</script>
 		<script
 			src="<?php print URL::$base; ?>/static/resources/twitter/bootstrap/js/bootstrap.js"

@@ -139,7 +139,7 @@ if (Config::get('application.profiler'))
 |
 */
 
-// Blade::sharpen();
+Blade::sharpen();
 
 /*
 |--------------------------------------------------------------------------

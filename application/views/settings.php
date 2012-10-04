@@ -16,11 +16,18 @@
 		style="text-align: center;"
 	>
 		<legend><?php print HTML::entities($title); ?></legend>
-		<?php if (Session::has('register_errors') || Session::has('submission_errors')): ?>
+		<?php if (Session::has('settings_success')): ?>
+		<div
+			class="alert alert-success"
+		>
+			<strong>Settings update successful.</strong>
+		</div>
+		<?php endif; ?>
+		<?php if (Session::has('settings_errors') || Session::has('submission_errors')): ?>
 		<div
 			class="alert alert-error"
 		>
-			<strong>Registration unsuccessful.</strong>
+			<strong>Settings update unsuccessful.</strong>
 		</div>
 		<?php endif; ?>
 		<?php if (Session::has('validation_errors')): ?>
@@ -32,7 +39,7 @@
 		?>
 		<?php endif; ?>
 		<form
-			method="POST"
+=			method="POST"
 		>
 			<?php print Form::token(); ?>
 			<div
@@ -49,7 +56,7 @@
 					name="username"
 					placeholder="Username"
 					type="text"
-					value="<?php print Input::old('username', ''); ?>"
+					value="<?php print (Input::old('username')) ? Input::old('username') : Auth::user()->username; ?>"
 				>
 			</div>
 			<br>
@@ -65,7 +72,7 @@
 				</span>
 				<input
 					name="password"
-					placeholder="Password"
+					placeholder="New Password"
 					type="password"
 				>
 			</div>
@@ -82,7 +89,7 @@
 				</span>
 				<input
 					name="password_confirmation"
-					placeholder="Confirm Password"
+					placeholder="Confirm New Password"
 					type="password"
 				>
 			</div>
@@ -101,14 +108,14 @@
 					name="email"
 					placeholder="Email Address"
 					type="email"
-					value="<?php print Input::old('email', ''); ?>"
+					value="<?php print (Input::old('email')) ? Input::old('email') : Auth::user()->email; ?>"
 				>
 			</div>
 			<br>
 			<input
 				class="btn btn-primary"
 				type="submit"
-				value="Register"
+				value="Update"
 			>
 		</form>
 	</div>

@@ -15,22 +15,38 @@
 		class="span4"
 		style="text-align: center;"
 	>
+		<legend><?php print HTML::entities($title); ?></legend>
+		<?php if (Session::has('register_success')): ?>
+		<div
+			class="alert alert-success"
+		>
+			<strong>Registration successful.</strong>
+			<br>
+			<strong>Please login.</strong>
+		</div>
+		<?php endif; ?>
+		<?php if (Session::has('logout')): ?>
+		<div
+			class="alert alert-info"
+		>
+			<strong>Logout successful.</strong>
+		</div>
+		<?php endif; ?>
 		<?php if (Session::has('login_errors')): ?>
 		<div
 			class="alert alert-error"
 		>
-			<strong>The username and password combination was incorrect.</strong>
+			<strong>Invalid combination of username and password.</strong>
 		</div>
 		<?php endif; ?>
 		<?php if (Session::has('submission_errors')): ?>
 		<div
 			class="alert alert-error"
 		>
-			<strong>There was an error submitting the form.</strong>
+			<strong>Login unsuccessful.</strong>
 		</div>
 		<?php endif; ?>
 		<form
-			action="<?php print URL::$base; ?>/login"
 			method="POST"
 		>
 			<?php print Form::token(); ?>
@@ -41,14 +57,14 @@
 					class="add-on"
 				>
 					<i
-						class="icon-large icon-user-md"
+						class="icon-large icon-user"
 					></i>
 				</span>
 				<input
 					name="username"
 					placeholder="Username"
 					type="text"
-					value="<?php print Input::old('username'); ?>"
+					value="<?php print Input::old('username', ''); ?>"
 				>
 			</div>
 			<br>
