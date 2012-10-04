@@ -32,9 +32,86 @@
 |
 */
 
-Route::get('/', function()
+/*Route::get('/', function()
 {
 	return View::make('home.index');
+});*/
+Route::get('/login', function () {
+	if (Auth::check()):
+		return Redirect::to('/');
+	else:
+		$view = View::make('login');
+		$view->with('title', 'Login');
+
+		return $view;
+	endif;
+});
+Route::post('/login', array(
+	'before' => 'csrf',
+	function () {
+		if (Auth::check()):
+			return Redirect::to('/');
+		else:
+			$user = array(
+				'username'	=> strtolower(Input::get('username')),
+				'password'	=> Input::get('password'),
+			);
+
+			if (Auth::attempt($user)):
+				$remember = Input::get('remember', 'no-remember');
+				if ($remember !== 'no-remember'):
+					Auth::login(Auth::user()->id, TRUE);
+				endif;
+
+				return Redirect::to('/');
+			else:
+				$redirect = Redirect::to('/login');
+				$redirect->with('login_errors', TRUE);
+				$redirect->with_input('only', array('username'));
+
+				return $redirect;
+			endif;
+		endif;
+	}
+));
+Route::get('/register', function () {
+	if (Auth::check()):
+		return Redirect::to('/');
+	else:
+		$view = View::make('register');
+		$view->with('title', 'Register');
+
+		return $view;
+	endif;
+});
+Route::post('/register', array(
+	'before' => 'csrf',
+	function () {
+		if (Auth::check()):
+			return Redirect::to('/');
+		else:
+			$user = array(
+				'username'	=> strtolower(Input::get('username')),
+				'password'	=> Input::get('password'),
+			);
+
+			if (Auth::attempt($user)):
+				return Redirect::to('/');
+			else:
+				$redirect = Redirect::to('/register');
+				$redirect->with('register_errors', TRUE);
+				$redirect->with_input('only', array('username'));
+
+				return $redirect;
+			endif;
+		endif;
+	}
+));
+Route::get('/', function () {
+	$view = View::make('index');
+	$view->with('title', 'Home');
+
+	return $view;
 });
 
 /*
@@ -102,10 +179,19 @@ Route::filter('after', function($response)
 
 Route::filter('csrf', function()
 {
-	if (Request::forged()) return Response::error('500');
+	// if (Request::forged()) return Response::error('500');
+	if (Request::forged()):
+		$redirect = Redirect::to('/' . Request::uri());
+		$redirect->with('submission_errors', TRUE);
+
+		return $redirect;
+	endif;
 });
 
 Route::filter('auth', function()
 {
-	if (Auth::guest()) return Redirect::to('login');
+	// if (Auth::guest()) return Redirect::to('login');
+	if (Auth::guest()):
+		return Redirect::to('/login');
+	endif;
 });
