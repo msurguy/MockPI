@@ -7,12 +7,12 @@
 	class="row-fluid"
 >
 	<div
-		class="span4"
+		class="span3"
 	>
 		&nbsp;
 	</div>
 	<div
-		class="span4"
+		class="span6"
 		style="text-align: center;"
 	>
 		<legend><?php print HTML::entities($title); ?></legend>
@@ -113,7 +113,7 @@
 		</form>
 	</div>
 	<div
-		class="span4"
+		class="span3"
 	>
 		&nbsp;
 	</div>

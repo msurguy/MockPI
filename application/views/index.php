@@ -7,12 +7,12 @@
 	class="row-fluid"
 >
 	<div
-		class="span4"
+		class="span3"
 	>
 		&nbsp;
 	</div>
 	<div
-		class="span4"
+		class="span6"
 		style="text-align: center;"
 	>
 		<h2>Mockups...for APIs.</h2>
@@ -33,7 +33,7 @@
 		</div>
 	</div>
 	<div
-		class="span4"
+		class="span3"
 	>
 		&nbsp;
 	</div>

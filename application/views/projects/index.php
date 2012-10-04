@@ -7,12 +7,12 @@
 	class="row-fluid"
 >
 	<div
-		class="span4"
+		class="span3"
 	>
 		&nbsp;
 	</div>
 	<div
-		class="span4"
+		class="span6"
 		style="text-align: center;"
 	>
 		<legend><?php print HTML::entities($title); ?></legend>
@@ -70,17 +70,39 @@
 						>
 							<thead>
 								<tr>
-									<th>Order #</th>
-									<th>Path (50 character sample)</th>
+									<th>ID</th>
+									<th
+										class="hidden-phone"
+									>Order</th>
+									<th
+										class="hidden-phone"
+									>Path</th>
 									<th>Status</th>
 								</tr>
 							</thead>
 							<tbody>
 								<?php foreach ($project->buckets as $bucket): ?>
 								<tr>
-									<td><?php print $bucket->order_number; ?></td>
-									<td><?php print $bucket->path; ?></td>
-									<td><?php print ($bucket->running) ? 'On' : 'Off'; ?></td>
+									<td>
+										<?php print $bucket->id; ?>
+									</td>
+									<td
+										class="hidden-phone"
+									>
+										<?php print $bucket->order_number; ?>
+									</td>
+									<td
+										class="hidden-phone"
+									>
+										<?php
+										$path_maximum_characters = 25;
+										$path = $bucket->path;
+										print (strlen($path) < $path_maximum_characters) ? $path : (substr($path, 0, $path_maximum_characters) . '...');
+										?>
+									</td>
+									<td>
+										<?php print ($bucket->running) ? 'On' : 'Off'; ?>
+									</td>
 								</tr>
 								<?php endforeach; ?>
 							</tbody>
@@ -115,7 +137,7 @@
 		</div>
 	</div>
 	<div
-		class="span4"
+		class="span3"
 	>
 		&nbsp;
 	</div>
