@@ -13,7 +13,6 @@
 	</div>
 	<div
 		class="span6"
-		style="text-align: center;"
 	>
 		<legend><?php print HTML::entities($title); ?></legend>
 		<?php if (Session::has('project_add_errors') || Session::has('submission_errors')): ?>
@@ -52,7 +51,6 @@
 					value="<?php print Input::old('title', ''); ?>"
 				>
 			</div>
-			<br>
 			<input
 				class="btn btn-primary"
 				type="submit"
@@ -68,4 +66,4 @@
 </div>
 <?php Section::stop(); ?>
 
-<?php print render('partials.main'); ?>
+<?php print render('partial.main'); ?>

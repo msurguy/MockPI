@@ -41,4 +41,4 @@
 </div>
 <?php Section::stop(); ?>
 
-<?php print render('partials.main'); ?>
+<?php print render('partial.main'); ?>

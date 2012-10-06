@@ -15,20 +15,29 @@ class Create_Projects {
 			$table->timestamps();
 			$table->integer('user_id')->unsigned();
 
-			$table->foreign('user_id')->on('users')->references('id')->unsigned();
+			if (Config::get('database.default') === 'mysql'):
+				$table->foreign('user_id')->on('users')->references('id')->unsigned();
+			endif;
 		});
 
+		$date = new \DateTime;
 		DB::table('projects')->insert(array(
-			'title'		=> 'Test Project 1',
-			'user_id'	=> 1,
+			'title'			=> 'Test Project 1',
+			'user_id'		=> 1,
+			'created_at'	=> $date,
+			'updated_at'	=> $date,
 		));
 		DB::table('projects')->insert(array(
-			'title'		=> 'Test Project 2',
-			'user_id'	=> 1,
+			'title'			=> 'Test Project 2',
+			'user_id'		=> 1,
+			'created_at'	=> $date,
+			'updated_at'	=> $date,
 		));
 		DB::table('projects')->insert(array(
-			'title'		=> 'Test Project 1',
-			'user_id'	=> 2,
+			'title'			=> 'Test Project 1',
+			'user_id'		=> 2,
+			'created_at'	=> $date,
+			'updated_at'	=> $date,
 		));
 	}
 

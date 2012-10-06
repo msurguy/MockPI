@@ -13,7 +13,6 @@
 	</div>
 	<div
 		class="span6"
-		style="text-align: center;"
 	>
 		<legend><?php print HTML::entities($title); ?></legend>
 		<?php if (Session::has('settings_success')): ?>
@@ -59,7 +58,6 @@
 					value="<?php print (Input::old('username')) ? Input::old('username') : Auth::user()->username; ?>"
 				>
 			</div>
-			<br>
 			<div
 				class="input-prepend"
 			>
@@ -76,7 +74,6 @@
 					type="password"
 				>
 			</div>
-			<br>
 			<div
 				class="input-prepend"
 			>
@@ -93,7 +90,6 @@
 					type="password"
 				>
 			</div>
-			<br>
 			<div
 				class="input-prepend"
 			>
@@ -111,7 +107,6 @@
 					value="<?php print (Input::old('email')) ? Input::old('email') : Auth::user()->email; ?>"
 				>
 			</div>
-			<br>
 			<input
 				class="btn btn-primary"
 				type="submit"
@@ -127,4 +122,4 @@
 </div>
 <?php Section::stop(); ?>
 
-<?php print render('partials.main'); ?>
+<?php print render('partial.main'); ?>

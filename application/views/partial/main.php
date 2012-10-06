@@ -80,6 +80,13 @@
 			rel="stylesheet"
 			type="text/css"
 		>
+		<?php if (array_key_exists('code_prettify', Section::$sections)): ?>
+		<link
+			href="<?php print URL::$base; ?>/static/resources/google/google-code-prettify/themes/sons-of-obsidian.css"
+			rel="stylesheet"
+			type="text/css"
+		>
+		<?php endif; ?>
 		<link
 			href="<?php print URL::$base; ?>/static/style/stylesheets/css/stylesheet.css"
 			rel="stylesheet"
@@ -91,16 +98,9 @@
 			rel="icon"
 		>
 
-		<script
-			src="<?php print URL::$base; ?>/static/resources/modernizr.js"
-		></script>
-		<script
-			src="<?php print URL::$base; ?>/static/resources/respond.js"
-		></script>
-
 		<?php Section::yield('head_end'); ?>
 	</head>
-	<body>
+	<body onload="prettyPrint()">
 		<?php print Section::yield('body_start'); ?>
 		<div
 			class="navbar navbar-fixed-top navbar-inverse"
@@ -150,7 +150,7 @@
 								class="divider-vertical"
 							></li>
 							<?php if (Auth::check()): ?>
-							<li<?php if (URI::segment(1) === 'projects') print ' class="active"'; ?>>
+							<li<?php if (URI::segment(1) === 'projects' || URI::segment(1) === 'project') print ' class="active"'; ?>>
 								<a
 									href="<?php print URL::$base; ?>/projects"
 								>
@@ -248,8 +248,8 @@
 						<i
 							class="icon-large icon-user"
 						></i>
-						Current user:
-						<strong><?php print Auth::user()->username ?></strong>
+						<strong>Current user:</strong>
+						<?php print Auth::user()->username ?>
 					</p>
 				</div>
 				<div
@@ -280,7 +280,6 @@
 							src="<?php print URL::$base; ?>/static/style/images/mockpi-logo.png"
 						>
 					</a>
-					<hr>
 				</div>
 				<div
 					class="span3"
@@ -343,10 +342,32 @@
 			src="<?php print URL::$base; ?>/static/resources/plugins.js"
 		></script>
 		<script
+			src="<?php print URL::$base; ?>/static/resources/modernizr.js"
+		></script>
+		<script
+			src="<?php print URL::$base; ?>/static/resources/respond.js"
+		></script>
+		<?php if (array_key_exists('code_prettify', Section::$sections)): ?>
+		<script
+			src="<?php print URL::$base; ?>/static/resources/google/google-code-prettify/prettify.js"
+		></script>
+		<?php endif; ?>
+		<script
 			src="<?php print URL::$base; ?>/static/scripts/js/script.js"
 		></script>
 		<!-- Google Analytics -->
 		<script></script>
 		<?php print Section::yield('body_end'); ?>
+
+		<?php
+		// http_response_code(404);
+
+		/*print '<pre>' . print_r(getallheaders(), TRUE) . '</pre>';
+		print '<pre>' . print_r(headers_list(), TRUE) . '</pre>';
+		print '<pre>' . print_r(http_response_code(404), TRUE) . '</pre>';
+
+		exit();*/
+		?>
+
 	</body>
 </html>

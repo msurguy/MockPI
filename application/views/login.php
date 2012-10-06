@@ -13,7 +13,6 @@
 	</div>
 	<div
 		class="span6"
-		style="text-align: center;"
 	>
 		<legend><?php print HTML::entities($title); ?></legend>
 		<?php if (Session::has('register_success')): ?>
@@ -67,7 +66,6 @@
 					value="<?php print Input::old('username', ''); ?>"
 				>
 			</div>
-			<br>
 			<div
 				class="input-prepend"
 			>
@@ -84,16 +82,16 @@
 					type="password"
 				>
 			</div>
-			<br>
-			<label>
-				<input
-					name="remember"
-					type="checkbox"
-					value="remember"
-				>
-				<strong>Remember Me</strong>
-			</label>
-			<br>
+			<div>
+				<label>
+					<input
+						name="remember"
+						type="checkbox"
+						value="remember"
+					>
+					<strong>Remember Me</strong>
+				</label>
+			</div>
 			<input
 				class="btn btn-primary"
 				type="submit"
@@ -109,4 +107,4 @@
 </div>
 <?php Section::stop(); ?>
 
-<?php print render('partials.main'); ?>
+<?php print render('partial.main'); ?>

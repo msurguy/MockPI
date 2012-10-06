@@ -13,7 +13,6 @@
 	</div>
 	<div
 		class="span6"
-		style="text-align: center;"
 	>
 		<h2>Mockups...for APIs.</h2>
 		<h3>You don&#39;t have to wait on your API developer to start working on your awesome project!</h3>
@@ -40,4 +39,4 @@
 </div>
 <?php Section::stop(); ?>
 
-<?php print render('partials.main'); ?>
+<?php print render('partial.main'); ?>

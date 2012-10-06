@@ -153,53 +153,44 @@ Route::post('/register', array(
 Route::group(array(
 	'before' => 'auth'
 ), function () {
-	Router::register(array(
-		'GET',
-		'POST',
-	), '/projects/add', array(
-		'uses' => 'projects@create',
-	));
-	Router::register(array(
-		'GET',
-		'POST',
-	), '/projects/(:num)/edit', array(
-		'uses' => 'projects@update',
-	));
-	Route::get('/projects/(:num)/remove', array(
-		'uses' => 'projects@delete',
-	));
-	Route::get('/projects/(:num)', array(
-		'uses' => 'projects@read',
-	));
 	Route::get('/projects', array(
-		'uses' => 'projects@index',
+		'uses' => 'project@index',
 	));
-});
-Route::group(array(
-	'before' => 'auth'
-), function () {
-	Route::get('/buckets/view/(:num)', array(
-		'uses' => 'buckets@view',
+	Router::register(array(
+		'GET',
+		'POST',
+	), '/project/add', array(
+		'uses' => 'project@create',
 	));
-	Route::get('/buckets/add', function () {
-
-	});
-	Route::post('/buckets/add', array(
-		'before'	=> 'csrf',
-		'uses'		=> 'buckets@add',
+	Router::register(array(
+		'GET',
+		'POST',
+	), '/project/(:num)/edit', array(
+		'uses' => 'project@update',
 	));
-	Route::get('/buckets/edit/(:num)', function () {
-
-	});
-	Route::post('/buckets/edit/(:num)', array(
-		'before'	=> 'csrf',
-		'uses'		=> 'buckets@edit',
+	Route::get('/project/(:num)/remove', array(
+		'uses' => 'project@delete',
 	));
-	Route::get('/buckets/delete/(:num)', function () {
-
-	});
-	Route::post('/buckets/delete/(:num)', array(
-		'uses' => 'buckets@delete',
+	Router::register(array(
+		'GET',
+		'POST',
+	), '/project/(:num)/bucket/add', array(
+		'uses' => 'project.bucket@create',
+	));
+	Router::register(array(
+		'GET',
+		'POST',
+	), '/project/(:num)/bucket/(:num)/edit', array(
+		'uses' => 'project.bucket@update',
+	));
+	Route::get('/project/(:num)/bucket/(:num)/remove', array(
+		'uses' => 'project.bucket@delete',
+	));
+	Route::get('/project/(:num)/bucket/(:num)', array(
+		'uses' => 'project.bucket@read',
+	));
+	Route::get('/project/(:num)', array(
+		'uses' => 'project@read',
 	));
 });
 Route::get('/settings', array(

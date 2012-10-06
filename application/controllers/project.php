@@ -1,5 +1,5 @@
 <?php
-class Projects_Controller extends Base_Controller {
+class Project_Controller extends Base_Controller {
 	public $default_title_start = 'Projects | ';
 
 	public function __construct () {
@@ -11,7 +11,7 @@ class Projects_Controller extends Base_Controller {
 		$filters->on('post');
 	}
 	public function action_index () {
-		$view = View::make('projects.index');
+		$view = View::make('project.index');
 		$view->with('title', $this->default_title_start . 'Home');
 		$view->with('projects', User::find(Auth::user()->id)->projects);
 
@@ -19,7 +19,7 @@ class Projects_Controller extends Base_Controller {
 	}
 	public function action_create () {
 		if (Request::method() === 'GET'):
-			$view = View::make('projects.add');
+			$view = View::make('project.add');
 			$view->with('title', $this->default_title_start . 'Add');
 
 			return $view;
@@ -33,7 +33,7 @@ class Projects_Controller extends Base_Controller {
 			$validation = Validator::make($input, $validation_rules);
 
 			if ($validation->fails()):
-				$redirect = Redirect::to('/projects/add');
+				$redirect = Redirect::to('/project/add');
 				$redirect->with('validation_errors', TRUE);
 				$redirect->with_errors($validation);
 				$redirect->with_input('only', array(
@@ -49,7 +49,7 @@ class Projects_Controller extends Base_Controller {
 				$project	= $user->projects()->insert($project);
 
 				if ($project):
-					$redirect = Redirect::to('/projects/' . $project->id);
+					$redirect = Redirect::to('/project/' . $project->id);
 					$redirect->with('project_add_success', TRUE);
 
 					return $redirect;
@@ -66,7 +66,7 @@ class Projects_Controller extends Base_Controller {
 		endif;
 	}
 	public function action_read ($id) {
-		$view = View::make('projects.view');
+		$view = View::make('project.view');
 		$view->with('title', $this->default_title_start . 'View');
 		$view->with('project', Project::find($id));
 
@@ -74,7 +74,7 @@ class Projects_Controller extends Base_Controller {
 	}
 	public function action_update ($id) {
 		if (Request::method() === 'GET'):
-			$view = View::make('projects.edit');
+			$view = View::make('project.edit');
 			$view->with('title', $this->default_title_start . 'Edit');
 			$view->with('project', Project::find($id));
 
@@ -103,7 +103,7 @@ class Projects_Controller extends Base_Controller {
 				$project = $project->save();
 
 				if ($project):
-					$redirect = Redirect::to('/' . URI::current());
+					$redirect = Redirect::to('/projects');
 					$redirect->with('project_edit_success', TRUE);
 
 					return $redirect;
@@ -121,6 +121,7 @@ class Projects_Controller extends Base_Controller {
 	}
 	public function action_delete ($id) {
 		$project = Project::find($id);
+		$project->buckets()->delete();
 		$project->delete();
 
 		$redirect = Redirect::to('/projects');
