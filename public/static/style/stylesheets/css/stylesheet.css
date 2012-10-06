@@ -1,0 +1,10 @@
+* {
+	-webkit-border-radius: 0 !important;
+	-moz-border-radius: 0 !important;
+	-ms-border-radius: 0 !important;
+	border-radius: 0 !important;
+}
+
+.main-logo {
+	width: 250px;
+}

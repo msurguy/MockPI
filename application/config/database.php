@@ -42,7 +42,8 @@ return array(
 	|
 	*/
 
-	'default' => 'mysql',
+	// 'default' => 'mysql',
+	'default' => 'sqlite',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -100,9 +101,18 @@ return array(
 	),*/
 	'connections' => array(
 		'sqlite' => array(
-			'driver'	=> 'sqlite',
 			'database'	=> 'application',
+			'driver'	=> 'sqlite',
 			'prefix'	=> '',
+		),
+		'mysql' => array(
+			'charset'  => 'utf8',
+			'database' => 'mockpi',
+			'driver'   => 'mysql',
+			'host'     => 'localhost',
+			'password' => 'mockpi',
+			'prefix'   => '',
+			'username' => 'mockpi',
 		),
 	),
 

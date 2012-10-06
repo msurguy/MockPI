@@ -1,0 +1,22 @@
+/**
+ * humans.txt - http://humanstxt.org
+ **/
+
+// TEAM
+	Developer: Jonathan Marvens Barronville
+	Site: http://jonathanmarvens.com
+	Twitter: @jonathanmarvens
+	Location: Boston, MA, United States
+
+// THANKS
+	Sponsor/Mentor: Michael Bourque
+	Site: http://mbourque.com
+	Twitter: @mpbourque
+	Location: Melrose, MA, United States
+
+// SITE
+	Doctype: HTML 5
+	Languages: English
+	Standards: HTML 5, CSS 3, et cetera.
+	Components: Twitter Bootstrap, Modernizr, Google Closure Library, jQuery, et cetera.
+	Software: Linux Mint Debian Edition, Sublime Text, Terminator, Google Chrome, et cetera.
