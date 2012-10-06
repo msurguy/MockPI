@@ -32,3 +32,4 @@ _notes
 .CVS
 # Numerous always-ignore extensions
 *.vi
+.git/ftpdata
