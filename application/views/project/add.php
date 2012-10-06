@@ -52,7 +52,7 @@
 				>
 			</div>
 			<input
-				class="btn btn-primary"
+				class="btn btn-success"
 				type="submit"
 				value="Add"
 			>

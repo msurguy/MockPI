@@ -20,11 +20,11 @@ Section::stop();
 		class="span6"
 	>
 		<legend><?php print HTML::entities($title); ?></legend>
-		<?php if (Session::has('bucket_edit_errors') || Session::has('submission_errors')): ?>
+		<?php if (Session::has('project_add_errors') || Session::has('submission_errors')): ?>
 		<div
 			class="alert alert-error"
 		>
-			<strong>Bucket edit unsuccessful.</strong>
+			<strong>Project add unsuccessful.</strong>
 		</div>
 		<?php endif; ?>
 		<?php if (Session::has('validation_errors')): ?>
@@ -54,7 +54,7 @@ Section::stop();
 					name="path"
 					placeholder="Path"
 					type="text"
-					value="<?php print (Input::old('path')) ? Input::old('path') : $bucket->path; ?>"
+					value="<?php print  Input::old('path', ''); ?>"
 				>
 			</div>
 			<?php print view('partial.project.bucket.form_path_info')->with(get_defined_vars())->render(); ?>
@@ -73,7 +73,7 @@ Section::stop();
 					name="response_code"
 					placeholder="Response Code"
 					type="text"
-					value="<?php print (Input::old('response_code')) ? Input::old('response_code') : $bucket->response_code; ?>"
+					value="<?php print Input::old('response_code', ''); ?>"
 				>
 			</div>
 			<div>
@@ -82,7 +82,7 @@ Section::stop();
 					name="response_headers"
 					placeholder="Response Headers"
 					rows="5"
-				><?php print (Input::old('response_headers')) ? Input::old('response_headers') : $bucket->response_headers; ?></textarea>
+				><?php print Input::old('response_headers', ''); ?></textarea>
 			</div>
 			<div>
 				<textarea
@@ -90,7 +90,7 @@ Section::stop();
 					name="response_data"
 					placeholder="Response Data"
 					rows="5"
-				><?php print (Input::old('response_data')) ? Input::old('response_data') : $bucket->response_data; ?></textarea>
+				><?php print Input::old('response_data', ''); ?></textarea>
 			</div>
 			<div>
 				<strong>Status:</strong>
@@ -99,9 +99,6 @@ Section::stop();
 						name="running"
 						type="radio"
 						value="1"
-						<?php if ($bucket->running): ?>
-						checked
-						<?php endif; ?>
 					>
 					On
 				</label>
@@ -110,35 +107,14 @@ Section::stop();
 						name="running"
 						type="radio"
 						value="0"
-						<?php if (! $bucket->running): ?>
-						checked
-						<?php endif; ?>
 					>
 					Off
 				</label>
 			</div>
-			<div
-				class="input-prepend"
-			>
-				<span
-					class="add-on"
-				>
-					<i
-						class="icon-large icon-sort"
-					></i>
-				</span>
-				<input
-					class="input-medium"
-					name="order_number"
-					placeholder="Order Number"
-					type="text"
-					value="<?php print (Input::old('order_number')) ? Input::old('order_number') : $bucket->order_number; ?>"
-				>
-			</div>
 			<input
-				class="btn btn-primary"
+				class="btn btn-success"
 				type="submit"
-				value="Edit"
+				value="Add"
 			>
 		</form>
 	</div>

@@ -36,9 +36,7 @@ class Project_Controller extends Base_Controller {
 				$redirect = Redirect::to('/project/add');
 				$redirect->with('validation_errors', TRUE);
 				$redirect->with_errors($validation);
-				$redirect->with_input('only', array(
-					'title'
-				));
+				$redirect->with_input();
 
 				return $redirect;
 			else:
@@ -56,9 +54,7 @@ class Project_Controller extends Base_Controller {
 				else:
 					$redirect = Redirect::to('/' . URI::current());
 					$redirect->with('project_add_errors', TRUE);
-					$redirect->with_input('only', array(
-						'title'
-					));
+					$redirect->with_input();
 
 					return $redirect;
 				endif;
@@ -92,9 +88,7 @@ class Project_Controller extends Base_Controller {
 				$redirect = Redirect::to('/' . URI::current());
 				$redirect->with('validation_errors', TRUE);
 				$redirect->with_errors($validation);
-				$redirect->with_input('only', array(
-					'title'
-				));
+				$redirect->with_input();
 
 				return $redirect;
 			else:
@@ -110,9 +104,7 @@ class Project_Controller extends Base_Controller {
 				else:
 					$redirect = Redirect::to('/' . URI::current());
 					$redirect->with('project_edit_errors', TRUE);
-					$redirect->with_input('only', array(
-						'title'
-					));
+					$redirect->with_input();
 
 					return $redirect;
 				endif;

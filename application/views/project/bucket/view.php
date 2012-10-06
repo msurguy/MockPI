@@ -20,6 +20,20 @@ Section::stop();
 		class="span6"
 	>
 		<legend><?php print HTML::entities($title); ?></legend>
+		<?php if (Session::has('bucket_add_success')): ?>
+		<div
+			class="alert alert-success"
+		>
+			<strong>Bucket add successful.</strong>
+		</div>
+		<?php endif; ?>
+		<?php if (Session::has('bucket_edit_success')): ?>
+		<div
+			class="alert alert-info"
+		>
+			<strong>Bucket edit successful.</strong>
+		</div>
+		<?php endif; ?>
 		<div
 			class="well well-small"
 		>
@@ -28,7 +42,7 @@ Section::stop();
 		<div>
 			<p>
 				<strong>Response Code:</strong>
-				<?php if ($bucket->response_code !== NULL): ?>
+				<?php if ($bucket->response_code !== NULL && trim($bucket->response_code) !== ''): ?>
 				<code><?php print $bucket->response_code; ?></code>
 				<?php else: ?>
 				None
@@ -37,7 +51,7 @@ Section::stop();
 			<div>
 				<p>
 					<strong>Response Headers:</strong>
-					<?php if ($bucket->response_headers !== NULL): ?>
+					<?php if ($bucket->response_headers !== NULL && trim($bucket->response_headers) !== ''): ?>
 					<pre
 						class="pre-scrollable"
 					><?php print $bucket->response_headers; ?></pre>
@@ -49,7 +63,7 @@ Section::stop();
 			<div>
 				<p>
 					<strong>Response Data:</strong>
-					<?php if ($bucket->response_data !== NULL): ?>
+					<?php if ($bucket->response_data !== NULL && trim($bucket->response_data) !== ''): ?>
 					<pre
 						class="linenums pre-scrollable prettyprint"
 					><?php print $bucket->response_data; ?></pre>
@@ -65,8 +79,6 @@ Section::stop();
 			<p>
 				<strong>Order:</strong>
 				<?php print $bucket->order_number; ?>
-				of
-				<?php print count($buckets); ?>
 			</p>
 			<p>
 				<strong>Date Created:</strong>

@@ -60,7 +60,7 @@
 			type="text/css"
 		>
 		<link
-			href="<?php print URL::$base; ?>/static/resources/twitter/bootstrap/css/bootstrap.css"
+			href="<?php print URL::$base; ?>/static/resources/twitter/bootstrap/css/bootstrap.min.css"
 			rel="stylesheet"
 			type="text/css"
 		>
@@ -71,7 +71,7 @@
 		}
 		</style>
 		<link
-			href="<?php print URL::$base; ?>/static/resources/twitter/bootstrap/css/bootstrap-responsive.css"
+			href="<?php print URL::$base; ?>/static/resources/twitter/bootstrap/css/bootstrap-responsive.min.css"
 			rel="stylesheet"
 			type="text/css"
 		>
@@ -333,19 +333,27 @@
 			src="//code.jquery.com/jquery-latest.js"
 		></script>
 		<script>
-		window.jQuery || document.write('<script src="<?php print URL::$base; ?>/static/resources/jquery.js"><\/script>');
+		window.jQuery || document.write('<script src="<?php print URL::$base; ?>/static/resources/jquery/jquery.min.js"><\/script>');
 		</script>
 		<script
-			src="<?php print URL::$base; ?>/static/resources/twitter/bootstrap/js/bootstrap.js"
+			src="<?php print URL::$base; ?>/static/resources/twitter/bootstrap/js/bootstrap.min.js"
 		></script>
 		<script
 			src="<?php print URL::$base; ?>/static/resources/plugins.js"
 		></script>
 		<script
+			src="<?php print URL::$base; ?>/static/resources/jquery/plugins/jquery.tablesorter.min.js"
+		></script>
+		<script>
+		$(document).ready(function () {
+			$('.tablesorter').tablesorter();
+		});
+		</script>
+		<script
 			src="<?php print URL::$base; ?>/static/resources/modernizr.js"
 		></script>
 		<script
-			src="<?php print URL::$base; ?>/static/resources/respond.js"
+			src="<?php print URL::$base; ?>/static/resources/respond.min.js"
 		></script>
 		<?php if (array_key_exists('code_prettify', Section::$sections)): ?>
 		<script

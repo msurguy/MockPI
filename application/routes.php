@@ -193,6 +193,9 @@ Route::group(array(
 		'uses' => 'project@read',
 	));
 });
+Route::get('/api/(:num)/(:all)', array(
+	'uses' => 'api@request',
+));
 Route::get('/settings', array(
 	'before' => 'auth',
 	function () {

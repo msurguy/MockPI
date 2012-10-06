@@ -17,7 +17,7 @@
 		<legend><?php print HTML::entities($title); ?></legend>
 		<?php if (Session::has('project_add_success')): ?>
 		<div
-			class="alert alert-info"
+			class="alert alert-success"
 		>
 			<strong>Project add successful.</strong>
 		</div>

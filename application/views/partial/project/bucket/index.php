@@ -1,18 +1,10 @@
-<?php Section::start('project_bucket_add_button'); ?>
-<hr>
-<a
-	class="btn btn-success btn-small"
-	href="<?php print URL::$base; ?>/project/<?php print $project->id; ?>/bucket/add"
->Add New Bucket</a>
-<hr>
-<?php Section::stop(); ?>
 <p>
 	<strong>Project ID Number:</strong>
 	<?php print $project->id; ?>
 </p>
 <?php if (count($project->buckets) > 0): ?>
 <table
-	class="table table-bordered table-hover table-condensed"
+	class="table table-bordered table-hover table-condensed tablesorter"
 >
 	<thead>
 		<tr>
@@ -57,12 +49,22 @@
 		<?php endforeach; ?>
 	</tbody>
 </table>
-<?php print Section::yield('project_bucket_add_button'); ?>
+<hr>
+<a
+	class="btn btn-success btn-small"
+	href="<?php print URL::$base; ?>/project/<?php print $project->id; ?>/bucket/add"
+>Add New Bucket</a>
+<hr>
 <?php else: ?>
 <div>
 	<span
 		class="label label-info"
 	>This project has no buckets.</span>
-	<?php print Section::yield('project_bucket_add_button'); ?>
+	<hr>
+	<a
+		class="btn btn-success btn-small"
+		href="<?php print URL::$base; ?>/project/<?php print $project->id; ?>/bucket/add"
+	>Add New Bucket</a>
+	<hr>
 </div>
 <?php endif; ?>
