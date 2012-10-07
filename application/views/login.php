@@ -31,6 +31,13 @@
 			<strong>Logout successful.</strong>
 		</div>
 		<?php endif; ?>
+		<?php if (Session::has('user_delete_success')): ?>
+		<div
+			class="alert alert-info"
+		>
+			<strong>User delete successful.</strong>
+		</div>
+		<?php endif; ?>
 		<?php if (Session::has('login_errors')): ?>
 		<div
 			class="alert alert-error"

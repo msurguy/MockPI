@@ -15,7 +15,7 @@
 		class="span6"
 	>
 		<h2>Mockups...for APIs.</h2>
-		<h3>You don&#39;t have to wait on your API developer to start working on your awesome project!</h3>
+		<h3>You don&#39;t have to wait on your API/back-end developer to start working on your awesome project!</h3>
 		<h4>You can get started now!</h4>
 		<h5>You can create a prototype API right here, in the browser.</h5>
 		<hr>
