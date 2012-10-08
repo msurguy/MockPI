@@ -20,7 +20,7 @@
 			<p>The page you requested could not be found on the server.</p>
 			<p>
 				Why not start fresh and check out the
-				<a href="<?php print URL::$base ?>/">homepage</a>?
+				<a href="<?php print URL::base(); ?>/">homepage</a>?
 			</p>
 		</div>
 	</div>

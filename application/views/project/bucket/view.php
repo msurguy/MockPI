@@ -23,9 +23,29 @@ Section::stop();
 			<strong>Bucket edit successful.</strong>
 		</div>
 		<?php endif; ?>
+		<div>
+			<p>
+				<strong>Project ID:</strong>
+				<?php print $project->id; ?>
+			</p>
+		</div>
 		<div class="well well-small">
 			<h2><?php print $bucket->path; ?></h2>
 		</div>
+		<?php
+		$bucket_path = trim($bucket->path);
+		if (! (substr($bucket_path, 0, 2) === '##')):
+		?>
+		<div>
+			<p>
+				<strong>API URL:</strong>
+				<a href="<?php print URL::base(); ?>/api/<?php print $project->id; ?><?php print $bucket->path; ?>" target="_blank"><?php print URL::base(); ?>/api/<?php print $project->id; ?><?php print $bucket->path; ?></a>
+				<br>
+				Format:
+				<code>http://&lt;mockpi-host&gt;/api/&lt;project-id&gt;&lt;bucket-path&gt;</code>
+			</p>
+		</div>
+		<?php endif; ?>
 		<div>
 			<p>
 				<strong>Response code:</strong>
@@ -85,8 +105,8 @@ Section::stop();
 			</p>
 		</div>
 		<hr>
-		<a class="btn btn-inverse btn-large" href="<?php print URL::$base; ?>/project/<?php print $project->id; ?>/bucket/<?php print $bucket->id; ?>/edit">Edit bucket</a>
-		<a class="btn btn-danger btn-large" href="<?php print URL::$base; ?>/project/<?php print $project->id; ?>/bucket/<?php print $bucket->id; ?>/remove">Delete bucket</a>
+		<a class="btn btn-inverse btn-large" href="<?php print URL::base(); ?>/project/<?php print $project->id; ?>/bucket/<?php print $bucket->id; ?>/edit">Edit bucket</a>
+		<a class="btn btn-danger btn-large" href="<?php print URL::base(); ?>/project/<?php print $project->id; ?>/bucket/<?php print $bucket->id; ?>/remove">Delete bucket</a>
 	</div>
 	<div class="span3">&nbsp;</div>
 </div>

@@ -11,9 +11,9 @@
 		<h5>You can create a prototype API right here, in the browser.</h5>
 		<hr>
 		<div>
-			<a class="btn btn-large btn-primary" href="<?php print URL::$base; ?>/login">Login</a>
+			<a class="btn btn-large btn-primary" href="<?php print URL::base(); ?>/login">Login</a>
 			<strong>or</strong>
-			<a class="btn btn-large btn-primary" href="<?php print URL::$base; ?>/register">Register</a>
+			<a class="btn btn-large btn-primary" href="<?php print URL::base(); ?>/register">Register</a>
 		</div>
 	</div>
 	<div class="span3">&nbsp;</div>

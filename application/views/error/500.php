@@ -20,7 +20,7 @@
 			<p>The server is malfunctioning and is unable to process your request.</p>
 			<p>
 				Why not start fresh and check out the
-				<a href="<?php print URL::$base ?>/">homepage</a>?
+				<a href="<?php print URL::base() ?>/">homepage</a>?
 			</p>
 		</div>
 	</div>

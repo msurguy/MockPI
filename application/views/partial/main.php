@@ -29,19 +29,19 @@
 		<meta content="" name="description">
 
 		<link href="//fonts.googleapis.com/css?family=Arbutus+Slab|Orienta|Oxygen+Mono" rel="stylesheet" type="text/css">
-		<link href="<?php print URL::$base; ?>/static/resources/twitter/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+		<link href="<?php print URL::base(); ?>/static/resources/twitter/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 		<style>
 		body {
 			padding-bottom: 40px;
 			padding-top: 60px;
 		}
 		</style>
-		<link href="<?php print URL::$base; ?>/static/resources/twitter/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css">
-		<link href="<?php print URL::$base; ?>/static/resources/fort-awesome/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css">
+		<link href="<?php print URL::base(); ?>/static/resources/twitter/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css">
+		<link href="<?php print URL::base(); ?>/static/resources/fort-awesome/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css">
 		<?php if (array_key_exists('code_prettify', Section::$sections)): ?>
-		<link href="<?php print URL::$base; ?>/static/resources/google/google-code-prettify/themes/sons-of-obsidian.css" rel="stylesheet" type="text/css">
+		<link href="<?php print URL::base(); ?>/static/resources/google/google-code-prettify/themes/sons-of-obsidian.css" rel="stylesheet" type="text/css">
 		<?php endif; ?>
-		<link href="<?php print URL::$base; ?>/static/style/stylesheets/css/stylesheet.css" rel="stylesheet" type="text/css">
+		<link href="<?php print URL::base(); ?>/static/style/stylesheets/css/stylesheet.css" rel="stylesheet" type="text/css">
 
 		<link href="/favicon.ico" rel="icon">
 
@@ -61,7 +61,7 @@
 						<ul class="nav">
 							<li class="divider-vertical"></li>
 							<li<?php if (URI::segment(1, 'ROOT') === 'ROOT') print ' class="active"'; ?>>
-								<a href="<?php print URL::$base ?>/">
+								<a href="<?php print URL::base() ?>/">
 									<i class="icon-home icon-large"></i>
 									<strong>Home</strong>
 								</a>
@@ -69,7 +69,7 @@
 							<li class="divider-vertical"></li>
 							<?php if (Auth::check()): ?>
 							<li<?php if (URI::segment(1) === 'projects' || URI::segment(1) === 'project') print ' class="active"'; ?>>
-								<a href="<?php print URL::$base; ?>/projects">
+								<a href="<?php print URL::base(); ?>/projects">
 									<i class="icon-folder-open icon-large"></i>
 									<strong>Projects</strong>
 								</a>
@@ -81,14 +81,14 @@
 						<ul class="nav pull-right">
 							<li class="divider-vertical"></li>
 							<li<?php if (URI::segment(1) === 'settings') print ' class="active"'; ?>>
-								<a href="<?php print URL::$base; ?>/settings">
+								<a href="<?php print URL::base(); ?>/settings">
 									<i class="icon-cogs icon-large"></i>
 									<strong>Settings</strong>
 								</a>
 							</li>
 							<li class="divider-vertical"></li>
 							<li>
-								<a href="<?php print URL::$base; ?>/logout">
+								<a href="<?php print URL::base(); ?>/logout">
 									<i class="icon-large icon-signout"></i>
 									<strong>Logout</strong>
 								</a>
@@ -99,14 +99,14 @@
 						<ul class="nav pull-right">
 							<li class="divider-vertical"></li>
 							<li<?php if (URI::segment(1) === 'login') print ' class="active"'; ?>>
-								<a href="<?php print URL::$base; ?>/login">
+								<a href="<?php print URL::base(); ?>/login">
 									<i class="icon-large icon-signin"></i>
 									<strong>Login</strong>
 								</a>
 							</li>
 							<li class="divider-vertical"></li>
 							<li<?php if (URI::segment(1) === 'register') print ' class="active"'; ?>>
-								<a href="<?php print URL::$base; ?>/register">
+								<a href="<?php print URL::base(); ?>/register">
 									<i class="icon-large icon-plus"></i>
 									<strong>Register</strong>
 								</a>
@@ -141,8 +141,8 @@
 					&nbsp;
 				</div>
 				<div class="span6" style="text-align: center;">
-					<a href="<?php print URL::$base; ?>/">
-						<img alt="MockPI" class="main-logo" src="<?php print URL::$base; ?>/static/style/images/mockpi-logo.png">
+					<a href="<?php print URL::base(); ?>/">
+						<img alt="MockPI" class="main-logo" src="<?php print URL::base(); ?>/static/style/images/mockpi-logo.png">
 					</a>
 				</div>
 				<div class="span3">
@@ -179,22 +179,22 @@
 		</div>
 		<script src="//code.jquery.com/jquery-latest.js"></script>
 		<script>
-		window.jQuery || document.write('<script src="<?php print URL::$base; ?>/static/resources/jquery/jquery.min.js"><\/script>');
+		window.jQuery || document.write('<script src="<?php print URL::base(); ?>/static/resources/jquery/jquery.min.js"><\/script>');
 		</script>
-		<script src="<?php print URL::$base; ?>/static/resources/twitter/bootstrap/js/bootstrap.min.js"></script>
-		<script src="<?php print URL::$base; ?>/static/resources/plugins.js"></script>
-		<script src="<?php print URL::$base; ?>/static/resources/jquery/plugins/jquery.tablesorter.min.js"></script>
+		<script src="<?php print URL::base(); ?>/static/resources/twitter/bootstrap/js/bootstrap.min.js"></script>
+		<script src="<?php print URL::base(); ?>/static/resources/plugins.js"></script>
+		<script src="<?php print URL::base(); ?>/static/resources/jquery/plugins/jquery.tablesorter.min.js"></script>
 		<script>
 		$(document).ready(function () {
 			$('.tablesorter').tablesorter();
 		});
 		</script>
-		<script src="<?php print URL::$base; ?>/static/resources/modernizr.js"></script>
-		<script src="<?php print URL::$base; ?>/static/resources/respond.min.js"></script>
+		<script src="<?php print URL::base(); ?>/static/resources/modernizr.js"></script>
+		<script src="<?php print URL::base(); ?>/static/resources/respond.min.js"></script>
 		<?php if (array_key_exists('code_prettify', Section::$sections)): ?>
-		<script src="<?php print URL::$base; ?>/static/resources/google/google-code-prettify/prettify.js"></script>
+		<script src="<?php print URL::base(); ?>/static/resources/google/google-code-prettify/prettify.js"></script>
 		<?php endif; ?>
-		<script src="<?php print URL::$base; ?>/static/scripts/js/script.js"></script>
+		<script src="<?php print URL::base(); ?>/static/scripts/js/script.js"></script>
 		<!-- Google Analytics -->
 		<script></script>
 		<?php print Section::yield('body_end'); ?>

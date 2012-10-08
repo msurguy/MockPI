@@ -58,7 +58,7 @@
 		</form>
 		<hr>
 		<div style="text-align: right;">
-			<a class="btn btn-danger btn-mini" href="<?php print URL::$base; ?>/user/remove/<?php print Auth::user()->id; ?>">Delete account</a>
+			<a class="btn btn-danger btn-mini" href="<?php print URL::base(); ?>/user/remove/<?php print Auth::user()->id; ?>">Delete account</a>
 		</div>
 	</div>
 	<div class="span3">&nbsp;</div>
