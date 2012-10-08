@@ -40,13 +40,13 @@
 				<span class="add-on">
 					<i class="icon-key icon-large"></i>
 				</span>
-				<input name="password_confirmation" placeholder="Confirm Password" type="password">
+				<input name="password_confirmation" placeholder="Confirm password" type="password">
 			</div>
 			<div class="input-prepend">
 				<span class="add-on">
 					<i class="icon-envelope icon-large"></i>
 				</span>
-				<input name="email" placeholder="Email Address" type="email"value="<?php print Input::old('email', ''); ?>">
+				<input name="email" placeholder="Email address" type="email"value="<?php print Input::old('email', ''); ?>">
 			</div>
 			<input class="btn btn-primary" type="submit" value="Register">
 		</form>

@@ -20,7 +20,7 @@
 		</div>
 		<?php endif; ?>
 		<div>
-			<a class="btn btn-large btn-success" href="<?php print URL::$base; ?>/project/add">Add New Project</a>
+			<a class="btn btn-large btn-success" href="<?php print URL::$base; ?>/project/add">Add new project</a>
 		</div>
 		<br>
 		<?php if (count($projects) > 0): ?>
@@ -41,9 +41,9 @@
 				<div class="accordion-body collapse" id="projects-group-item-<?php print $i; ?>">
 					<div class="accordion-inner">
 						<?php print view('partial.project.bucket.index')->with(get_defined_vars())->render(); ?>
-						<a class="btn btn-info btn-large" href="<?php print URL::$base; ?>/project/<?php print $project->id; ?>">View Project</a>
-						<a class="btn btn-inverse btn-large" href="<?php print URL::$base; ?>/project/<?php print $project->id; ?>/edit">Edit Project</a>
-						<a class="btn btn-danger btn-large" href="<?php print URL::$base; ?>/project/<?php print $project->id; ?>/remove">Delete Project</a>
+						<a class="btn btn-info btn-large" href="<?php print URL::$base; ?>/project/<?php print $project->id; ?>">View project</a>
+						<a class="btn btn-inverse btn-large" href="<?php print URL::$base; ?>/project/<?php print $project->id; ?>/edit">Edit project</a>
+						<a class="btn btn-danger btn-large" href="<?php print URL::$base; ?>/project/<?php print $project->id; ?>/remove">Delete project</a>
 					</div>
 				</div>
 			</div>

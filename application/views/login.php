@@ -53,7 +53,7 @@
 			<div>
 				<label>
 					<input name="remember" type="checkbox" value="remember">
-					<strong>Remember Me</strong>
+					<strong>Remember me</strong>
 				</label>
 			</div>
 			<input class="btn btn-primary" type="submit" value="Login">

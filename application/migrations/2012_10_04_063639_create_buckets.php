@@ -15,6 +15,8 @@ class Create_Buckets {
 			$table->text('response_headers')->nullable();
 			$table->text('response_code')->nullable();
 			$table->text('response_data')->nullable();
+			$table->boolean('is_json_xml')->default(FALSE);
+			$table->integer('json_xml')->nullable();
 			$table->boolean('running')->default(FALSE);
 			$table->integer('order_number')->unsigned();
 			$table->timestamps();
@@ -29,6 +31,8 @@ class Create_Buckets {
 		DB::table('buckets')->insert(array(
 			'path'			=> '/hello',
 			'response_data'	=> '{"data": "Hello, world!"}',
+			'is_json_xml'	=> TRUE,
+			'json_xml'		=> 1,
 			'running'		=> TRUE,
 			'order_number'	=> 1,
 			'project_id'	=> 1,
@@ -38,7 +42,7 @@ class Create_Buckets {
 		));
 		DB::table('buckets')->insert(array(
 			'path'			=> '/hi',
-			'response_data'	=> '{"data": "Hi, world!"}',
+			'response_data'	=> 'Hi, world!',
 			'running'		=> FALSE,
 			'order_number'	=> 2,
 			'project_id'	=> 1,

@@ -28,9 +28,9 @@
 				<span class="add-on">
 					<i class="icon-large icon-pushpin"></i>
 				</span>
-				<input name="title" placeholder="Project Title" type="text" value="<?php print Input::old('title', ''); ?>">
+				<input name="title" placeholder="Project title" type="text" value="<?php print Input::old('title', ''); ?>">
 			</div>
-			<input class="btn btn-success" type="submit" value="Add">
+			<input class="btn btn-success" type="submit" value="Add project">
 		</form>
 	</div>
 	<div class="span3">&nbsp;</div>

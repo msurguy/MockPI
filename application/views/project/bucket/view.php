@@ -28,7 +28,7 @@ Section::stop();
 		</div>
 		<div>
 			<p>
-				<strong>Response Code:</strong>
+				<strong>Response code:</strong>
 				<?php if ($bucket->response_code !== NULL && trim($bucket->response_code) !== ''): ?>
 				<code><?php print $bucket->response_code; ?></code>
 				<?php else: ?>
@@ -37,7 +37,7 @@ Section::stop();
 			</p>
 			<div>
 				<p>
-					<strong>Response Headers:</strong>
+					<strong>Response headers:</strong>
 					<?php if ($bucket->response_headers !== NULL && trim($bucket->response_headers) !== ''): ?>
 					<pre class="pre-scrollable"><?php print $bucket->response_headers; ?></pre>
 					<?php else: ?>
@@ -47,11 +47,23 @@ Section::stop();
 			</div>
 			<div>
 				<p>
-					<strong>Response Data:</strong>
+					<strong>Response data:</strong>
 					<?php if ($bucket->response_data !== NULL && trim($bucket->response_data) !== ''): ?>
 					<pre class="linenums pre-scrollable prettyprint"><?php print $bucket->response_data; ?></pre>
 					<?php else: ?>
 					None
+					<?php endif; ?>
+				</p>
+			</div>
+			<div>
+				<p>
+					<strong>Response data type:</strong>
+					<?php if (((int) $bucket->json_xml) === 1): ?>
+					JSON
+					<?php elseif (((int) $bucket->json_xml) === 2): ?>
+					XML
+					<?php else: ?>
+					Unknown
 					<?php endif; ?>
 				</p>
 			</div>
@@ -60,21 +72,21 @@ Section::stop();
 				<?php print ($bucket->running) ? 'On' : 'Off'; ?>
 			</p>
 			<p>
-				<strong>Order:</strong>
+				<strong>Order number:</strong>
 				<?php print $bucket->order_number; ?>
 			</p>
 			<p>
-				<strong>Date Created:</strong>
+				<strong>Date created:</strong>
 				<?php print $bucket->created_at; ?>
 			</p>
 			<p>
-				<strong>Date Updated:</strong>
+				<strong>Date updated:</strong>
 				<?php print $bucket->updated_at; ?>
 			</p>
 		</div>
 		<hr>
-		<a class="btn btn-inverse btn-large" href="<?php print URL::$base; ?>/project/<?php print $project->id; ?>/bucket/<?php print $bucket->id; ?>/edit">Edit Bucket</a>
-		<a class="btn btn-danger btn-large" href="<?php print URL::$base; ?>/project/<?php print $project->id; ?>/bucket/<?php print $bucket->id; ?>/remove">Delete Bucket</a>
+		<a class="btn btn-inverse btn-large" href="<?php print URL::$base; ?>/project/<?php print $project->id; ?>/bucket/<?php print $bucket->id; ?>/edit">Edit bucket</a>
+		<a class="btn btn-danger btn-large" href="<?php print URL::$base; ?>/project/<?php print $project->id; ?>/bucket/<?php print $bucket->id; ?>/remove">Delete bucket</a>
 	</div>
 	<div class="span3">&nbsp;</div>
 </div>

@@ -40,25 +40,25 @@
 				<span class="add-on">
 					<i class="icon-key icon-large"></i>
 				</span>
-				<input name="password" placeholder="New Password" type="password">
+				<input name="password" placeholder="New password" type="password">
 			</div>
 			<div class="input-prepend">
 				<span class="add-on">
 					<i class="icon-key icon-large"></i>
 				</span>
-				<input name="password_confirmation" placeholder="Confirm New Password" type="password">
+				<input name="password_confirmation" placeholder="Confirm new password" type="password">
 			</div>
 			<div class="input-prepend">
 				<span class="add-on">
 					<i class="icon-envelope icon-large"></i>
 				</span>
-				<input name="email" placeholder="Email Address" type="email" value="<?php print (Input::old('email')) ? Input::old('email') : Auth::user()->email; ?>">
+				<input name="email" placeholder="Email address" type="email" value="<?php print (Input::old('email')) ? Input::old('email') : Auth::user()->email; ?>">
 			</div>
-			<input class="btn btn-primary" type="submit" value="Update">
+			<input class="btn btn-primary" type="submit" value="Update settings">
 		</form>
 		<hr>
 		<div style="text-align: right;">
-			<a class="btn btn-danger btn-mini" href="<?php print URL::$base; ?>/user/remove/<?php print Auth::user()->id; ?>">Delete Account</a>
+			<a class="btn btn-danger btn-mini" href="<?php print URL::$base; ?>/user/remove/<?php print Auth::user()->id; ?>">Delete account</a>
 		</div>
 	</div>
 	<div class="span3">&nbsp;</div>

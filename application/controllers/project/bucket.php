@@ -25,6 +25,10 @@ class Project_Bucket_Controller extends Base_Controller {
 				'running'		=> 'in:0,1|integer|required',
 			);
 
+			if (Input::get('is_json_xml', FALSE) !== FALSE):
+				$validation_rules['json_xml'] = 'in:1,2|integer|required_with:is_json_xml';
+			endif;
+
 			$validation = Validator::make($input, $validation_rules);
 
 			if ($validation->fails()):
@@ -36,12 +40,20 @@ class Project_Bucket_Controller extends Base_Controller {
 				return $redirect;
 			else:
 				$bucket = new Bucket(array(
+					'is_json_xml'		=> (Input::get('is_json_xml', FALSE) !== FALSE) ? TRUE : FALSE,
+					'json_xml'			=> (Input::get('is_json_xml', FALSE) !== FALSE) ? (
+						(int) Input::get('json_xml')
+					) : NULL,
+					'order_number'		=> (
+						(
+							(int) Project::find($project_id)->buckets()->max('order_number')
+						) + 1
+					),
 					'path'				=> Input::get('path'),
-					'response_headers'	=> Input::get('response_headers'),
 					'response_code'		=> Input::get('response_code'),
 					'response_data'		=> Input::get('response_data'),
+					'response_headers'	=> Input::get('response_headers'),
 					'running'			=> Input::get('running'),
-					'order_number'		=> (Project::find($project_id)->buckets()->max('order_number') + 1),
 				));
 				$project = Project::find($project_id);
 				$bucket = $project->buckets()->insert($bucket);
@@ -86,6 +98,10 @@ class Project_Bucket_Controller extends Base_Controller {
 				'running'		=> 'in:0,1|integer|required',
 			);
 
+			if (Input::get('is_json_xml', FALSE) !== FALSE):
+				$validation_rules['json_xml'] = 'in:1,2|integer|required_with:is_json_xml';
+			endif;
+
 			$buckets 					= Project::find($project_id)->buckets;
 			$buckets_error_numbers_list	= '';
 			foreach ($buckets as $bucket):
@@ -108,12 +124,18 @@ class Project_Bucket_Controller extends Base_Controller {
 				return $redirect;
 			else:
 				$bucket = Bucket::find($id);
+				$bucket->is_json_xml		= (Input::get('is_json_xml', FALSE) !== FALSE) ? TRUE : FALSE;
+				$bucket->json_xml			= (Input::get('is_json_xml', FALSE) !== FALSE) ? (
+					(int) Input::get('json_xml')
+				) : NULL;
+				$bucket->order_number		= (
+					(int) Input::get('order_number')
+				);
 				$bucket->path				= Input::get('path');
-				$bucket->response_headers	= Input::get('response_headers');
 				$bucket->response_code		= Input::get('response_code');
 				$bucket->response_data		= Input::get('response_data');
+				$bucket->response_headers	= Input::get('response_headers');
 				$bucket->running			= Input::get('running');
-				$bucket->order_number		= Input::get('order_number');
 				$bucket = $bucket->save();
 
 				if ($bucket):

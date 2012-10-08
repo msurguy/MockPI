@@ -39,13 +39,29 @@ Section::stop();
 				<span class="add-on">
 					<i class="icon-large icon-qrcode"></i>
 				</span>
-				<input class="input-medium" name="response_code" placeholder="Response Code" type="text" value="<?php print Input::old('response_code', ''); ?>">
+				<input class="input-medium" name="response_code" placeholder="Response code" type="text" value="<?php print Input::old('response_code', ''); ?>">
 			</div>
 			<div>
-				<textarea class="input-xxlarge" name="response_headers" placeholder="Response Headers" rows="5"><?php print Input::old('response_headers', ''); ?></textarea>
+				<textarea class="input-xxlarge" name="response_headers" placeholder="Response headers" rows="5"><?php print Input::old('response_headers', ''); ?></textarea>
 			</div>
 			<div>
-				<textarea class="input-xxlarge" name="response_data" placeholder="Response Data" rows="5"><?php print Input::old('response_data', ''); ?></textarea>
+				<textarea class="input-xxlarge" name="response_data" placeholder="Response data" rows="5"><?php print Input::old('response_data', ''); ?></textarea>
+			</div>
+			<div>
+				<label>
+					<input name="is_json_xml" type="checkbox">
+					<strong>Response data is JSON or XML</strong>
+				</label>
+				<div style="left: 25px; position: relative;">
+					<label class="radio">
+						<input name="json_xml" type="radio" value="1">
+						JSON
+					</label>
+					<label class="radio">
+						<input name="json_xml" type="radio" value="2">
+						XML
+					</label>
+				</div>
 			</div>
 			<div>
 				<strong>Status:</strong>
@@ -58,7 +74,7 @@ Section::stop();
 					Off
 				</label>
 			</div>
-			<input class="btn btn-success" type="submit" value="Add">
+			<input class="btn btn-success" type="submit" value="Add bucket">
 		</form>
 	</div>
 	<div class="span3">&nbsp;</div>
