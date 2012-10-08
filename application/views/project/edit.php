@@ -1,24 +1,16 @@
 <?php Section::start('head_title'); ?>
 <?php print HTML::entities($title); ?>
 <?php Section::stop(); ?>
-
 <?php Section::start('content'); ?>
-<div
-	class="row-fluid"
->
-	<div
-		class="span3"
-	>
-		&nbsp;
-	</div>
-	<div
-		class="span6"
-	>
-		<legend><?php print HTML::entities($title); ?></legend>
+<div class="row-fluid">
+	<div class="span3">&nbsp;</div>
+	<div class="span6">
+		<div class="page-inner-title">
+			<h1><?php print HTML::entities($title); ?></h1>
+			<hr>
+		</div>
 		<?php if (Session::has('project_edit_errors') || Session::has('submission_errors')): ?>
-		<div
-			class="alert alert-error"
-		>
+		<div class="alert alert-error">
 			<strong>Project edit unsuccessful.</strong>
 		</div>
 		<?php endif; ?>
@@ -30,40 +22,18 @@
 		endforeach;
 		?>
 		<?php endif; ?>
-		<form
-			method="POST"
-		>
+		<form method="POST">
 			<?php print Form::token(); ?>
-			<div
-				class="input-prepend"
-			>
-				<span
-					class="add-on"
-				>
-					<i
-						class="icon-large icon-pushpin"
-					></i>
+			<div class="input-prepend">
+				<span class="add-on">
+					<i class="icon-large icon-pushpin"></i>
 				</span>
-				<input
-					name="title"
-					placeholder="Project Title"
-					type="text"
-					value="<?php print (Input::old('title')) ? Input::old('title') : $project->title; ?>"
-				>
+				<input name="title" placeholder="Project title" type="text" value="<?php print (Input::old('title')) ? Input::old('title') : $project->title; ?>">
 			</div>
-			<input
-				class="btn btn-primary"
-				type="submit"
-				value="Edit"
-			>
+			<input class="btn btn-primary" type="submit" value="Edit project">
 		</form>
 	</div>
-	<div
-		class="span3"
-	>
-		&nbsp;
-	</div>
+	<div class="span3">&nbsp;</div>
 </div>
 <?php Section::stop(); ?>
-
 <?php print render('partial.main'); ?>

@@ -11,7 +11,7 @@
 			</li>
 			<li>
 				<strong>RegEx:</strong>
-				<code>##\/users\/[0-9]\.json</code>
+				<code>##\/users\/[0-9]+\.json</code>
 				(<code>##</code>
 				must be used).
 			</li>
