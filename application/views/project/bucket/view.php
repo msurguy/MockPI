@@ -1,42 +1,29 @@
 <?php Section::start('head_title'); ?>
 <?php print HTML::entities($title); ?>
 <?php Section::stop(); ?>
-
 <?php
 Section::start('code_prettify');
 Section::stop();
 ?>
-
 <?php Section::start('content'); ?>
-<div
-	class="row-fluid"
->
-	<div
-		class="span3"
-	>
-		&nbsp;
-	</div>
-	<div
-		class="span6"
-	>
-		<legend><?php print HTML::entities($title); ?></legend>
+<div class="row-fluid">
+	<div class="span3">&nbsp;</div>
+	<div class="span6">
+		<div class="page-inner-title">
+			<h1><?php print HTML::entities($title); ?></h1>
+			<hr>
+		</div>
 		<?php if (Session::has('bucket_add_success')): ?>
-		<div
-			class="alert alert-success"
-		>
+		<div class="alert alert-success">
 			<strong>Bucket add successful.</strong>
 		</div>
 		<?php endif; ?>
 		<?php if (Session::has('bucket_edit_success')): ?>
-		<div
-			class="alert alert-info"
-		>
+		<div class="alert alert-info">
 			<strong>Bucket edit successful.</strong>
 		</div>
 		<?php endif; ?>
-		<div
-			class="well well-small"
-		>
+		<div class="well well-small">
 			<h2><?php print $bucket->path; ?></h2>
 		</div>
 		<div>
@@ -52,9 +39,7 @@ Section::stop();
 				<p>
 					<strong>Response Headers:</strong>
 					<?php if ($bucket->response_headers !== NULL && trim($bucket->response_headers) !== ''): ?>
-					<pre
-						class="pre-scrollable"
-					><?php print $bucket->response_headers; ?></pre>
+					<pre class="pre-scrollable"><?php print $bucket->response_headers; ?></pre>
 					<?php else: ?>
 					None
 					<?php endif; ?>
@@ -64,9 +49,7 @@ Section::stop();
 				<p>
 					<strong>Response Data:</strong>
 					<?php if ($bucket->response_data !== NULL && trim($bucket->response_data) !== ''): ?>
-					<pre
-						class="linenums pre-scrollable prettyprint"
-					><?php print $bucket->response_data; ?></pre>
+					<pre class="linenums pre-scrollable prettyprint"><?php print $bucket->response_data; ?></pre>
 					<?php else: ?>
 					None
 					<?php endif; ?>
@@ -90,21 +73,10 @@ Section::stop();
 			</p>
 		</div>
 		<hr>
-		<a
-			class="btn btn-inverse btn-large"
-			href="<?php print URL::$base; ?>/project/<?php print $project->id; ?>/bucket/<?php print $bucket->id; ?>/edit"
-		>Edit Bucket</a>
-		<a
-			class="btn btn-danger btn-large"
-			href="<?php print URL::$base; ?>/project/<?php print $project->id; ?>/bucket/<?php print $bucket->id; ?>/remove"
-		>Delete Bucket</a>
+		<a class="btn btn-inverse btn-large" href="<?php print URL::$base; ?>/project/<?php print $project->id; ?>/bucket/<?php print $bucket->id; ?>/edit">Edit Bucket</a>
+		<a class="btn btn-danger btn-large" href="<?php print URL::$base; ?>/project/<?php print $project->id; ?>/bucket/<?php print $bucket->id; ?>/remove">Delete Bucket</a>
 	</div>
-	<div
-		class="span3"
-	>
-		&nbsp;
-	</div>
+	<div class="span3">&nbsp;</div>
 </div>
 <?php Section::stop(); ?>
-
 <?php print render('partial.main'); ?>

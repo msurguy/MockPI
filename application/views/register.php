@@ -1,24 +1,16 @@
 <?php Section::start('head_title'); ?>
 <?php print HTML::entities($title); ?>
 <?php Section::stop(); ?>
-
 <?php Section::start('content'); ?>
-<div
-	class="row-fluid"
->
-	<div
-		class="span3"
-	>
-		&nbsp;
-	</div>
-	<div
-		class="span6"
-	>
-		<legend><?php print HTML::entities($title); ?></legend>
+<div class="row-fluid">
+	<div class="span3">&nbsp;</div>
+	<div class="span6">
+		<div class="page-inner-title">
+			<h1><?php print HTML::entities($title); ?></h1>
+			<hr>
+		</div>
 		<?php if (Session::has('register_errors') || Session::has('submission_errors')): ?>
-		<div
-			class="alert alert-error"
-		>
+		<div class="alert alert-error">
 			<strong>Registration unsuccessful.</strong>
 		</div>
 		<?php endif; ?>
@@ -30,89 +22,36 @@
 		endforeach;
 		?>
 		<?php endif; ?>
-		<form
-			method="POST"
-		>
+		<form method="POST">
 			<?php print Form::token(); ?>
-			<div
-				class="input-prepend"
-			>
-				<span
-					class="add-on"
-				>
-					<i
-						class="icon-large icon-user"
-					></i>
+			<div class="input-prepend">
+				<span class="add-on">
+					<i class="icon-large icon-user"></i>
 				</span>
-				<input
-					name="username"
-					placeholder="Username"
-					type="text"
-					value="<?php print Input::old('username', ''); ?>"
-				>
+				<input name="username" placeholder="Username" type="text" value="<?php print Input::old('username', ''); ?>">
 			</div>
-			<div
-				class="input-prepend"
-			>
-				<span
-					class="add-on"
-				>
-					<i
-						class="icon-key icon-large"
-					></i>
+			<div class="input-prepend">
+				<span class="add-on">
+					<i class="icon-key icon-large"></i>
 				</span>
-				<input
-					name="password"
-					placeholder="Password"
-					type="password"
-				>
+				<input name="password" placeholder="Password" type="password">
 			</div>
-			<div
-				class="input-prepend"
-			>
-				<span
-					class="add-on"
-				>
-					<i
-						class="icon-key icon-large"
-					></i>
+			<div class="input-prepend">
+				<span class="add-on">
+					<i class="icon-key icon-large"></i>
 				</span>
-				<input
-					name="password_confirmation"
-					placeholder="Confirm Password"
-					type="password"
-				>
+				<input name="password_confirmation" placeholder="Confirm Password" type="password">
 			</div>
-			<div
-				class="input-prepend"
-			>
-				<span
-					class="add-on"
-				>
-					<i
-						class="icon-envelope icon-large"
-					></i>
+			<div class="input-prepend">
+				<span class="add-on">
+					<i class="icon-envelope icon-large"></i>
 				</span>
-				<input
-					name="email"
-					placeholder="Email Address"
-					type="email"
-					value="<?php print Input::old('email', ''); ?>"
-				>
+				<input name="email" placeholder="Email Address" type="email"value="<?php print Input::old('email', ''); ?>">
 			</div>
-			<input
-				class="btn btn-primary"
-				type="submit"
-				value="Register"
-			>
+			<input class="btn btn-primary" type="submit" value="Register">
 		</form>
 	</div>
-	<div
-		class="span3"
-	>
-		&nbsp;
-	</div>
+	<div class="span3">&nbsp;</div>
 </div>
 <?php Section::stop(); ?>
-
 <?php print render('partial.main'); ?>
