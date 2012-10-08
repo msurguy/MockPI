@@ -39,6 +39,12 @@ class Project_Bucket_Controller extends Base_Controller {
 
 				return $redirect;
 			else:
+				if (substr(Input::get('path'), 0, 1) !== '/' && substr(Input::get('path'), 0, 2) !== '##'):
+					Input::merge(array(
+						'path' => '/' . Input::get('path'),
+					));
+				endif;
+
 				$bucket = new Bucket(array(
 					'is_json_xml'		=> (Input::get('is_json_xml', FALSE) !== FALSE) ? TRUE : FALSE,
 					'json_xml'			=> (Input::get('is_json_xml', FALSE) !== FALSE) ? (
@@ -123,6 +129,12 @@ class Project_Bucket_Controller extends Base_Controller {
 
 				return $redirect;
 			else:
+				if (substr(Input::get('path'), 0, 1) !== '/' && substr(Input::get('path'), 0, 2) !== '##'):
+					Input::merge(array(
+						'path' => '/' . Input::get('path'),
+					));
+				endif;
+
 				$bucket = Bucket::find($id);
 				$bucket->is_json_xml		= (Input::get('is_json_xml', FALSE) !== FALSE) ? TRUE : FALSE;
 				$bucket->json_xml			= (Input::get('is_json_xml', FALSE) !== FALSE) ? (
