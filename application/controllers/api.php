@@ -43,8 +43,10 @@ class Api_Controller extends Base_Controller {
 				$response_headers['Content-Type'] = 'application/json';
 				if ($bucket->is_jsonp):
 					if (Input::get('callback', FALSE) !== FALSE):
-						$response_headers['Content-Type'] = 'application/javascript';
-						$response_content = Input::get('callback') . '(' . $response_content . ');';
+						if (preg_match('/^[a-zA-Z_$]{1}[a-zA-Z0-9_$]*$/', Input::get('callback'))):
+							$response_headers['Content-Type'] = 'application/javascript';
+							$response_content = Input::get('callback') . '(' . $response_content . ');';
+						endif;
 					endif;
 				endif;
 			elseif (((int) $bucket->json_xml) == 2):
