@@ -50,6 +50,9 @@ class Project_Bucket_Controller extends Base_Controller {
 					'json_xml'			=> (Input::get('is_json_xml', FALSE) !== FALSE) ? (
 						(int) Input::get('json_xml')
 					) : NULL,
+					'is_jsonp'			=> (Input::get('is_json_xml', FALSE) !== FALSE) ? (
+						(Input::get('is_jsonp', FALSE) !== FALSE) ? TRUE : FALSE
+					) : FALSE,
 					'order_number'		=> (
 						(
 							(int) Project::find($project_id)->buckets()->max('order_number')
@@ -140,6 +143,9 @@ class Project_Bucket_Controller extends Base_Controller {
 				$bucket->json_xml			= (Input::get('is_json_xml', FALSE) !== FALSE) ? (
 					(int) Input::get('json_xml')
 				) : NULL;
+				$bucket->is_jsonp			= (Input::get('is_json_xml', FALSE) !== FALSE) ? (
+					(Input::get('is_jsonp', FALSE) !== FALSE) ? TRUE : FALSE
+				) : FALSE;
 				$bucket->order_number		= (
 					(int) Input::get('order_number')
 				);

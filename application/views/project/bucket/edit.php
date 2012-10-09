@@ -13,7 +13,7 @@ Section::stop();
 			<h1><?php print HTML::entities($title); ?></h1>
 			<hr>
 		</div>
-=		<?php if (Session::has('bucket_edit_errors') || Session::has('submission_errors')): ?>
+		<?php if (Session::has('bucket_edit_errors') || Session::has('submission_errors')): ?>
 		<div class="alert alert-error">
 			<strong>Bucket edit unsuccessful.</strong>
 		</div>
@@ -57,6 +57,12 @@ Section::stop();
 						<input name="json_xml" type="radio" value="1"<?php if (((int) $bucket->json_xml) === 1): ?> checked<?php endif; ?>>
 						JSON
 					</label>
+					<div style="left: 25px; position: relative;">
+						<label>
+							<input name="is_jsonp" type="checkbox"<?php if ($bucket->is_jsonp): ?> checked<?php endif; ?>>
+							JSONP
+						</label>
+					</div>
 					<label class="radio">
 						<input name="json_xml" type="radio" value="2"<?php if (((int) $bucket->json_xml) === 2): ?> checked<?php endif; ?>>
 						XML
