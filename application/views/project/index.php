@@ -38,7 +38,7 @@
 						</div>
 					</a>
 				</div>
-				<div class="accordion-body collapse" id="projects-group-item-<?php print $i; ?>">
+				<div class="accordion-body collapse in" id="projects-group-item-<?php print $i; ?>">
 					<div class="accordion-inner">
 						<?php print view('partial.project.bucket.index')->with(get_defined_vars())->render(); ?>
 						<a class="btn btn-info btn-large" href="<?php print URL::base(); ?>/project/<?php print $project->id; ?>">View project</a>
