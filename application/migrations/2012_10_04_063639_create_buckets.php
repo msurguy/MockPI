@@ -16,6 +16,7 @@ class Create_Buckets {
 			$table->text('response_code')->nullable();
 			$table->text('response_data')->nullable();
 			$table->boolean('is_json_xml')->default(FALSE);
+			$table->boolean('is_jsonp')->default(FALSE);
 			$table->integer('json_xml')->nullable();
 			$table->boolean('running')->default(FALSE);
 			$table->integer('order_number')->unsigned();
@@ -32,6 +33,7 @@ class Create_Buckets {
 			'path'			=> '/hello',
 			'response_data'	=> '{"data": "Hello, world!"}',
 			'is_json_xml'	=> TRUE,
+			'is_jsonp'		=> TRUE,
 			'json_xml'		=> 1,
 			'running'		=> TRUE,
 			'order_number'	=> 1,

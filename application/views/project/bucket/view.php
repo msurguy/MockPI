@@ -80,6 +80,9 @@ Section::stop();
 					<strong>Response data type:</strong>
 					<?php if (((int) $bucket->json_xml) === 1): ?>
 					JSON
+						<?php if ($bucket->is_jsonp): ?>
+						(or JSONP)
+						<?php endif; ?>
 					<?php elseif (((int) $bucket->json_xml) === 2): ?>
 					XML
 					<?php else: ?>

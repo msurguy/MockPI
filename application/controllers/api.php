@@ -41,6 +41,12 @@ class Api_Controller extends Base_Controller {
 		if ($bucket->is_json_xml):
 			if (((int) $bucket->json_xml) == 1):
 				$response_headers['Content-Type'] = 'application/json';
+				if ($bucket->is_jsonp):
+					if (Input::get('callback', FALSE) !== FALSE):
+						$response_headers['Content-Type'] = 'application/javascript';
+						$response_content = Input::get('callback') . '(' . $response_content . ');';
+					endif;
+				endif;
 			elseif (((int) $bucket->json_xml) == 2):
 				$response_headers['Content-Type'] = 'application/xml';
 			endif;

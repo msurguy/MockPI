@@ -57,6 +57,12 @@ Section::stop();
 						<input name="json_xml" type="radio" value="1">
 						JSON
 					</label>
+					<div style="left: 25px; position: relative;">
+						<label>
+							<input name="is_jsonp" type="checkbox">
+							JSONP
+						</label>
+					</div>
 					<label class="radio">
 						<input name="json_xml" type="radio" value="2">
 						XML

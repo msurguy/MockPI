@@ -47,7 +47,7 @@
 
 		<?php Section::yield('head_end'); ?>
 	</head>
-	<body onload="prettyPrint()">
+	<body<?php if (array_key_exists('code_prettify', Section::$sections)): ?> onload="prettyPrint()"<?php endif; ?>>
 		<?php print Section::yield('body_start'); ?>
 		<div class="navbar navbar-fixed-top navbar-inverse">
 			<div class="navbar-inner">
